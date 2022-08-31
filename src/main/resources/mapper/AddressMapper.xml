@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjc.springbootwechatshop.dao.AddressMapper">
+    <resultMap id="address" type="com.hjc.springbootwechatshop.domain.address">
+        <id column="AddressID" property="addressID" jdbcType="INTEGER"/>
+        <result column="UserNum" property="userNum" jdbcType="VARCHAR"/>
+        <result column="Province" property="province" jdbcType="VARCHAR"/>
+        <result column="City" property="city" jdbcType="VARCHAR"/>
+        <result column="District" property="district" jdbcType="VARCHAR"/>
+        <result column="DetailedAddress" property="detailedAddress" jdbcType="VARCHAR"/>
+        <result column="PhoneNum" property="phoneNum" jdbcType="VARCHAR"/>
+        <result column="UserName" property="userName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectAddressByid" resultType="com.hjc.springbootwechatshop.domain.address">
+        select * from address where AddressID=#{addressID}
+
+    </select>
+    <select id="selectAddressByUserNum" resultType="com.hjc.springbootwechatshop.domain.address">
+
+        select * from address where UserNum=#{userNum}
+    </select>
+</mapper>

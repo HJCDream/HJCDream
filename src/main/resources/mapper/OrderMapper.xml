@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjc.springbootwechatshop.dao.OrderMapper">
+    <resultMap id="oderInfo" type="com.hjc.springbootwechatshop.domain.oderInfo">
+        <id column="OrderID" property="orderId" jdbcType="INTEGER"/>
+        <result column="orderNum" property="orderNum" jdbcType="VARCHAR"/>
+        <result column="UserNum" property="userNum" jdbcType="VARCHAR"/>
+        <result column="StartDate" property="startDate" jdbcType="TIMESTAMP"/>
+        <result column="ProductID" property="productId" jdbcType="INTEGER"/>
+        <result column="Status" property="status" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="notOrderIdAndDate">
+
+    </sql>
+
+    <insert id="insertOrderInfo" parameterType="com.hjc.springbootwechatshop.domain.oderInfo">
+        INSERT into ordere(orderNum,UserNum,ProductID,`Status`)VALUES(#{orderNum,jdbcType=VARCHAR},#{userNum,jdbcType=VARCHAR},
+        #{productId,jdbcType=INTEGER},#{status,jdbcType=VARCHAR})
+
+    </insert>
+</mapper>

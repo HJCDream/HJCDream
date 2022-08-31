@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjc.springbootwechatshop.dao.UserMapper">
+    <resultMap id="UserMap" type="com.hjc.springbootwechatshop.domain.user">
+        <id column="UserID" property="userID" jdbcType="INTEGER"></id>
+        <result column="UserName" property="userName" jdbcType="VARCHAR"/>
+        <result column="UserNum" property="userNum" jdbcType="VARCHAR"/>
+        <result column="PhoneNum" property="phoneNum" jdbcType="VARCHAR"/>
+        <result column="AddressID" property="addressID" jdbcType="VARCHAR"/>
+        <result column="UserImage" property="userImage" jdbcType="VARCHAR"/>
+
+    </resultMap>
+    <sql id="noid">
+        UserNum,UserName,PhoneNum,UserImage
+    </sql>
+    <insert id="insertUserInfo">
+        INSERT INTO user(<include refid="noid"></include>)values (#{userNum,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR}
+        ,#{phoneNum,jdbcType=VARCHAR},#{userImage,jdbcType=VARCHAR}
+        )on DUPLICATE key UPDATE UserNum=#{userNum},UserName=#{userName},PhoneNum=#{phoneNum},UserImage=#{userImage}
+
+    </insert>
+    <select id="selectUserInfo" resultType="com.hjc.springbootwechatshop.domain.user">
+        select * from user where UserNum=#{userNum}
+
+    </select>
+    <!--    <select id="selectCarByUser" resultType="com.hjc.springbootwechatshop.domain.product_spu1">-->
+
+
+<!--    </select>-->
+
+
+</mapper>
