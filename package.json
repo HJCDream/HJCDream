@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "wafer2-client-sdk": "^2.1.0"
+  }
+}
